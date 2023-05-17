@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-limit
+spec:
+  containers:
+  - name: abc
+    image: nginx
+    resources:
+      limits:
+        cpu: "1"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-request
+spec:
+  containers:
+  - name: xyz
+    image: nginx
+    resources:
+      requests:
+        cpu: "0.75"
+        
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-memory
+spec:
+  containers:
+  - name: cont-memory
+    image: nginx
+    resources:
+      limits:
+        memory: "800Mi"
+      requests:
+        memory: "600Mi"
